@@ -7,6 +7,8 @@
 //
 
 #import "RDViewController.h"
+#import "Scanner.h"
+#import <ScanditSDK/ScanditSDKBarcodePicker.h>
 
 @interface RDViewController ()
 
@@ -24,6 +26,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)scanButtonPressed:(id)sender {
+    [Scanner scanWithCompletion:^(NSString *code) {
+        NSLog(@"code");
+    }];
+
 }
 
 @end
