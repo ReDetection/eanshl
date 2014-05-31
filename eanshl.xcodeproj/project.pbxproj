@@ -112,6 +112,9 @@
 		36F4A064193A29E60077D1A5 /* eanshl */ = {
 			isa = PBXGroup;
 			children = (
+				36F4A095193A2A3A0077D1A5 /* Network */,
+				36F4A094193A2A2C0077D1A5 /* Model */,
+				36F4A093193A2A010077D1A5 /* UI */,
 				36F4A06D193A29E60077D1A5 /* RDAppDelegate.h */,
 				36F4A06E193A29E60077D1A5 /* RDAppDelegate.m */,
 				36F4A070193A29E60077D1A5 /* Main.storyboard */,
@@ -150,6 +153,27 @@
 				36F4A086193A29E60077D1A5 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		36F4A093193A2A010077D1A5 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		36F4A094193A2A2C0077D1A5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		36F4A095193A2A3A0077D1A5 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
