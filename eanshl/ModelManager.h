@@ -4,8 +4,13 @@
 //
 
 
+@class Barcode;
 
 @interface ModelManager : NSObject
 
+- (Barcode *)barcodeWithEanString:(NSString *)ean;
 
+- (Barcode *)createBarcodeWithString:(NSString *)code;
+
+- (void)save;
 @end

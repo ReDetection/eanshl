@@ -10,9 +10,11 @@
 #import <CoreData/CoreData.h>
 
 
+@class Product;
+
 @interface Barcode : NSManagedObject
 
 @property (nonatomic, retain) NSString * barcode;
-@property (nonatomic, retain) NSManagedObject *product;
+@property (nonatomic, retain) Product *product;
 
 @end

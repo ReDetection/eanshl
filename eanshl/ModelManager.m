@@ -5,6 +5,7 @@
 
 #import <CoreData/CoreData.h>
 #import "ModelManager.h"
+#import "Barcode.h"
 
 
 @interface ModelManager ()
@@ -62,6 +63,24 @@
 
 }
 
+- (Barcode *)barcodeWithEanString:(NSString *)ean {
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Barcode"];
+    fetchRequest.fetchLimit = 1;
+    //TODO ean with weight
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"barcode == %@", ean];
+    fetchRequest.relationshipKeyPathsForPrefetching = @[@"product"];
+    NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil]; //TODO check for errors
+    return results.count > 0 ? results[0] : nil;
+}
 
+- (Barcode *)createBarcodeWithString:(NSString *)code {
+    Barcode *result = [NSEntityDescription insertNewObjectForEntityForName:@"Barcode" inManagedObjectContext:self.managedObjectContext];
+    result.barcode = code;
+    return result;
+}
+
+- (void)save {
+    [self.managedObjectContext save:nil]; //check for errors
+}
 
 @end
