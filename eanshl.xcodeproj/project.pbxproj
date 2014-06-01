@@ -31,6 +31,13 @@
 		36F4A0AD193AE30A0077D1A5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F4A0AC193AE30A0077D1A5 /* QuartzCore.framework */; };
 		36F4A0AF193AE3110077D1A5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F4A0AE193AE3110077D1A5 /* CoreLocation.framework */; };
 		36F4A0B1193AE31A0077D1A5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F4A0B0193AE31A0077D1A5 /* SystemConfiguration.framework */; };
+		36F4A0B4193AE86A0077D1A5 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 36F4A0B2193AE86A0077D1A5 /* Model.xcdatamodeld */; };
+		36F4A0B7193AF27D0077D1A5 /* ToshlTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F4A0B6193AF27D0077D1A5 /* ToshlTag.m */; };
+		36F4A0BA193AF27E0077D1A5 /* Price.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F4A0B9193AF27E0077D1A5 /* Price.m */; };
+		36F4A0BD193AF27E0077D1A5 /* Store.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F4A0BC193AF27E0077D1A5 /* Store.m */; };
+		36F4A0C0193AF27E0077D1A5 /* Barcode.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F4A0BF193AF27E0077D1A5 /* Barcode.m */; };
+		36F4A0C3193AF27E0077D1A5 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F4A0C2193AF27E0077D1A5 /* Product.m */; };
+		420CE956174C867BBDBE1D18 /* ModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 420CECA5FC26948899B71D5A /* ModelManager.m */; };
 		A79BC09BFDAA43EB9B3C782A /* libPods-eanshl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B1E00C9FAA481C8A8184B9 /* libPods-eanshl.a */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +84,19 @@
 		36F4A0AC193AE30A0077D1A5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		36F4A0AE193AE3110077D1A5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		36F4A0B0193AE31A0077D1A5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		36F4A0B3193AE86A0077D1A5 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		36F4A0B5193AF27D0077D1A5 /* ToshlTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ToshlTag.h; path = ../Model/ToshlTag.h; sourceTree = "<group>"; };
+		36F4A0B6193AF27D0077D1A5 /* ToshlTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ToshlTag.m; path = ../Model/ToshlTag.m; sourceTree = "<group>"; };
+		36F4A0B8193AF27E0077D1A5 /* Price.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Price.h; path = ../Model/Price.h; sourceTree = "<group>"; };
+		36F4A0B9193AF27E0077D1A5 /* Price.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Price.m; path = ../Model/Price.m; sourceTree = "<group>"; };
+		36F4A0BB193AF27E0077D1A5 /* Store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Store.h; path = ../Model/Store.h; sourceTree = "<group>"; };
+		36F4A0BC193AF27E0077D1A5 /* Store.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Store.m; path = ../Model/Store.m; sourceTree = "<group>"; };
+		36F4A0BE193AF27E0077D1A5 /* Barcode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Barcode.h; path = ../Model/Barcode.h; sourceTree = "<group>"; };
+		36F4A0BF193AF27E0077D1A5 /* Barcode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Barcode.m; path = ../Model/Barcode.m; sourceTree = "<group>"; };
+		36F4A0C1193AF27E0077D1A5 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Product.h; path = ../Model/Product.h; sourceTree = "<group>"; };
+		36F4A0C2193AF27E0077D1A5 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Product.m; path = ../Model/Product.m; sourceTree = "<group>"; };
+		420CE5E56D6B2FE70C118656 /* ModelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelManager.h; sourceTree = "<group>"; };
+		420CECA5FC26948899B71D5A /* ModelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelManager.m; sourceTree = "<group>"; };
 		F5B1E00C9FAA481C8A8184B9 /* libPods-eanshl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-eanshl.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -213,6 +233,19 @@
 		36F4A094193A2A2C0077D1A5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				36F4A0B2193AE86A0077D1A5 /* Model.xcdatamodeld */,
+				420CECA5FC26948899B71D5A /* ModelManager.m */,
+				420CE5E56D6B2FE70C118656 /* ModelManager.h */,
+				36F4A0C1193AF27E0077D1A5 /* Product.h */,
+				36F4A0C2193AF27E0077D1A5 /* Product.m */,
+				36F4A0BE193AF27E0077D1A5 /* Barcode.h */,
+				36F4A0BF193AF27E0077D1A5 /* Barcode.m */,
+				36F4A0BB193AF27E0077D1A5 /* Store.h */,
+				36F4A0BC193AF27E0077D1A5 /* Store.m */,
+				36F4A0B8193AF27E0077D1A5 /* Price.h */,
+				36F4A0B9193AF27E0077D1A5 /* Price.m */,
+				36F4A0B5193AF27D0077D1A5 /* ToshlTag.h */,
+				36F4A0B6193AF27D0077D1A5 /* ToshlTag.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -367,9 +400,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				36F4A06F193A29E60077D1A5 /* RDAppDelegate.m in Sources */,
+				36F4A0B4193AE86A0077D1A5 /* Model.xcdatamodeld in Sources */,
+				36F4A0C3193AF27E0077D1A5 /* Product.m in Sources */,
+				36F4A0C0193AF27E0077D1A5 /* Barcode.m in Sources */,
 				36F4A06B193A29E60077D1A5 /* main.m in Sources */,
 				36F4A0A5193A45010077D1A5 /* Scanner.mm in Sources */,
 				36F4A075193A29E60077D1A5 /* RDViewController.m in Sources */,
+				36F4A0BA193AF27E0077D1A5 /* Price.m in Sources */,
+				36F4A0BD193AF27E0077D1A5 /* Store.m in Sources */,
+				36F4A0B7193AF27D0077D1A5 /* ToshlTag.m in Sources */,
+				420CE956174C867BBDBE1D18 /* ModelManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,6 +630,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		36F4A0B2193AE86A0077D1A5 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				36F4A0B3193AE86A0077D1A5 /* Model.xcdatamodel */,
+			);
+			currentVersion = 36F4A0B3193AE86A0077D1A5 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 36F4A053193A29E60077D1A5 /* Project object */;
 }
