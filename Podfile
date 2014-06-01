@@ -3,7 +3,10 @@
 
 target "eanshl" do
  pod 'ScanditSDK', '~> 4.0.0'
-
+ 
+ # for the toshl api
+ pod 'RestKit', '~> 0.23.1'
+ pod 'AFOAuth2Client', '~> 0.1.2'
 end
 
 target "eanshlTests" do

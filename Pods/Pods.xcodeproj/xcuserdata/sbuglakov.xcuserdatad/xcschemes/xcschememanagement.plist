@@ -4,7 +4,42 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-eanshl-AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-eanshl-AFOAuth2Client.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-eanshl-ISO8601DateFormatterValueTransformer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-eanshl-RKValueTransformers.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-eanshl-RestKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-eanshl-SOCKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-eanshl-ScanditSDK.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-eanshl-TransitionKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,12 +52,47 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1F98F862C66045368659D41F</key>
+		<key>3B475DC5413F4A84B4E8577B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DE8AE65B979B4183B30DC545</key>
+		<key>4735990710AD42138ECD9ED3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>509CA0D1066A445D97CEAEC8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>55193CFB07D0440AB238C4E0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>73F6C54D91BF4C2FAEF6AF82</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7940AE5079CF4CF9AAED600F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AA9120384A914D75B5E970F0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AE4129253E884EC8BEA7DB71</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F93B2A512AD74172BF52A069</key>
 		<dict>
 			<key>primary</key>
 			<true/>
