@@ -9,6 +9,6 @@
 
 @interface Scanner : NSObject
 
-+ (void)scanWithCompletion:(void (^)(NSString *code))block;
++ (void)scanWithCompletion:(void (^)(NSString *code))block fromViewController:(UIViewController *)vc;
 
 @end

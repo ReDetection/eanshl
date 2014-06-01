@@ -31,7 +31,7 @@
 - (IBAction)scanButtonPressed:(id)sender {
     [Scanner scanWithCompletion:^(NSString *code) {
         NSLog(@"code");
-    }];
+    } fromViewController:self];
 
 }
 

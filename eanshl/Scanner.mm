@@ -1,5 +1,5 @@
 //
-//  Scanner.m
+//  Scanner.mm
 //  eanshl
 //
 //  Created by sbuglakov on 01/06/14.
@@ -21,7 +21,7 @@ static Scanner *sharedInstance;
 
 @implementation Scanner
 
-+ (void)load {
++ (void)initialize {
     [ScanditSDKBarcodePicker prepareWithAppKey:APIKEY];
     sharedInstance = [[Scanner alloc] init];
 }
@@ -31,20 +31,36 @@ static Scanner *sharedInstance;
     if (self) {
         self.picker = [[ScanditSDKBarcodePicker alloc] initWithAppKey:APIKEY];
         self.picker.overlayController.delegate = self;
+        [self.picker.overlayController showSearchBar:YES];
+        [self.picker.overlayController showToolBar:YES];
     }
     return self;
 }
 
-+ (void)scanWithCompletion:(void (^)(NSString *code))block  {
++ (void)scanWithCompletion:(void (^)(NSString *code))block fromViewController:(UIViewController *)vc {
     sharedInstance.completion = block;
-    [sharedInstance.picker startScanning];
+    sharedInstance.completion = block;
+    [vc presentViewController:sharedInstance.picker animated:YES completion:^{
+        [sharedInstance.picker startScanning];
+    }];
 }
 
 - (void)scanditSDKOverlayController:(ScanditSDKOverlayController *)overlayController didScanBarcode:(NSDictionary *)barcode {
-    NSLog(@"barcode %@", barcode);
+    [self.picker stopScanning];
+    [self.picker dismissViewControllerAnimated:YES completion:nil];
+    self.completion(barcode[@"barcode"]);
 }
 
 - (void)scanditSDKOverlayController:(ScanditSDKOverlayController *)overlayController didCancelWithStatus:(NSDictionary *)status {
+    [self.picker stopScanning];
+    [self.picker dismissViewControllerAnimated:YES completion:nil];
+    self.completion(nil);
+}
+
+- (void)scanditSDKOverlayController:(ScanditSDKOverlayController *)overlayController didManualSearch:(NSString *)text {
+    [self.picker stopScanning];
+    [self.picker dismissViewControllerAnimated:YES completion:nil];
+    self.completion(text);
 }
 
 @end

@@ -24,7 +24,13 @@
 		36F4A099193A36080077D1A5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F4A098193A36080077D1A5 /* AVFoundation.framework */; };
 		36F4A09D193A36480077D1A5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F4A09C193A36480077D1A5 /* AudioToolbox.framework */; };
 		36F4A0A1193A42C70077D1A5 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F4A0A0193A42C70077D1A5 /* CoreMedia.framework */; };
-		36F4A0A5193A45010077D1A5 /* Scanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F4A0A4193A45010077D1A5 /* Scanner.m */; };
+		36F4A0A5193A45010077D1A5 /* Scanner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 36F4A0A4193A45010077D1A5 /* Scanner.mm */; };
+		36F4A0A7193AE2EB0077D1A5 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F4A0A6193AE2EB0077D1A5 /* libstdc++.dylib */; };
+		36F4A0A9193AE2F60077D1A5 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F4A0A8193AE2F60077D1A5 /* libiconv.dylib */; };
+		36F4A0AB193AE2FD0077D1A5 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F4A0AA193AE2FD0077D1A5 /* CoreVideo.framework */; };
+		36F4A0AD193AE30A0077D1A5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F4A0AC193AE30A0077D1A5 /* QuartzCore.framework */; };
+		36F4A0AF193AE3110077D1A5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F4A0AE193AE3110077D1A5 /* CoreLocation.framework */; };
+		36F4A0B1193AE31A0077D1A5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F4A0B0193AE31A0077D1A5 /* SystemConfiguration.framework */; };
 		A79BC09BFDAA43EB9B3C782A /* libPods-eanshl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B1E00C9FAA481C8A8184B9 /* libPods-eanshl.a */; };
 /* End PBXBuildFile section */
 
@@ -64,7 +70,13 @@
 		36F4A09C193A36480077D1A5 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		36F4A0A0193A42C70077D1A5 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		36F4A0A3193A45010077D1A5 /* Scanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scanner.h; sourceTree = "<group>"; };
-		36F4A0A4193A45010077D1A5 /* Scanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scanner.m; sourceTree = "<group>"; };
+		36F4A0A4193A45010077D1A5 /* Scanner.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Scanner.mm; sourceTree = "<group>"; };
+		36F4A0A6193AE2EB0077D1A5 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		36F4A0A8193AE2F60077D1A5 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		36F4A0AA193AE2FD0077D1A5 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		36F4A0AC193AE30A0077D1A5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		36F4A0AE193AE3110077D1A5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		36F4A0B0193AE31A0077D1A5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F5B1E00C9FAA481C8A8184B9 /* libPods-eanshl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-eanshl.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -73,6 +85,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36F4A0B1193AE31A0077D1A5 /* SystemConfiguration.framework in Frameworks */,
+				36F4A0AF193AE3110077D1A5 /* CoreLocation.framework in Frameworks */,
+				36F4A0AD193AE30A0077D1A5 /* QuartzCore.framework in Frameworks */,
+				36F4A0AB193AE2FD0077D1A5 /* CoreVideo.framework in Frameworks */,
+				36F4A0A9193AE2F60077D1A5 /* libiconv.dylib in Frameworks */,
+				36F4A0A7193AE2EB0077D1A5 /* libstdc++.dylib in Frameworks */,
 				36F4A0A1193A42C70077D1A5 /* CoreMedia.framework in Frameworks */,
 				36F4A099193A36080077D1A5 /* AVFoundation.framework in Frameworks */,
 				36F4A09D193A36480077D1A5 /* AudioToolbox.framework in Frameworks */,
@@ -119,6 +137,12 @@
 		36F4A05D193A29E60077D1A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				36F4A0B0193AE31A0077D1A5 /* SystemConfiguration.framework */,
+				36F4A0AE193AE3110077D1A5 /* CoreLocation.framework */,
+				36F4A0AC193AE30A0077D1A5 /* QuartzCore.framework */,
+				36F4A0AA193AE2FD0077D1A5 /* CoreVideo.framework */,
+				36F4A0A8193AE2F60077D1A5 /* libiconv.dylib */,
+				36F4A0A6193AE2EB0077D1A5 /* libstdc++.dylib */,
 				36F4A0A0193A42C70077D1A5 /* CoreMedia.framework */,
 				36F4A09C193A36480077D1A5 /* AudioToolbox.framework */,
 				36F4A09A193A36350077D1A5 /* CoreAudio.framework */,
@@ -204,7 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				36F4A0A3193A45010077D1A5 /* Scanner.h */,
-				36F4A0A4193A45010077D1A5 /* Scanner.m */,
+				36F4A0A4193A45010077D1A5 /* Scanner.mm */,
 			);
 			name = Scanner;
 			sourceTree = "<group>";
@@ -344,7 +368,7 @@
 			files = (
 				36F4A06F193A29E60077D1A5 /* RDAppDelegate.m in Sources */,
 				36F4A06B193A29E60077D1A5 /* main.m in Sources */,
-				36F4A0A5193A45010077D1A5 /* Scanner.m in Sources */,
+				36F4A0A5193A45010077D1A5 /* Scanner.mm in Sources */,
 				36F4A075193A29E60077D1A5 /* RDViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
