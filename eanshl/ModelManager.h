@@ -5,12 +5,18 @@
 
 
 @class Barcode;
+@class Product;
+@class Price;
+@class ToshlTag;
 
 @interface ModelManager : NSObject
 
 - (Barcode *)barcodeWithEanString:(NSString *)ean;
 
 - (Barcode *)createBarcodeWithString:(NSString *)code;
+- (Product *)createProductWithName:(NSString *)name;
+- (ToshlTag *)createTagWithName:(NSString *)name;
+- (Price *)createPriceWithValue:(NSString *)value;
 
 - (void)save;
 @end

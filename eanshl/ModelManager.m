@@ -6,6 +6,9 @@
 #import <CoreData/CoreData.h>
 #import "ModelManager.h"
 #import "Barcode.h"
+#import "Product.h"
+#import "Price.h"
+#import "ToshlTag.h"
 
 
 @interface ModelManager ()
@@ -76,6 +79,24 @@
 - (Barcode *)createBarcodeWithString:(NSString *)code {
     Barcode *result = [NSEntityDescription insertNewObjectForEntityForName:@"Barcode" inManagedObjectContext:self.managedObjectContext];
     result.barcode = code;
+    return result;
+}
+
+- (Product *)createProductWithName:(NSString *)name {
+    Product *result = [NSEntityDescription insertNewObjectForEntityForName:@"Product" inManagedObjectContext:self.managedObjectContext];
+    result.name = name;
+    return result;
+}
+
+- (ToshlTag *)createTagWithName:(NSString *)name {
+    ToshlTag *result = [NSEntityDescription insertNewObjectForEntityForName:@"ToshlTag" inManagedObjectContext:self.managedObjectContext];
+    result.name = name;
+    return result;
+}
+
+- (Price *)createPriceWithValue:(NSString *)value {
+    Price *result = [NSEntityDescription insertNewObjectForEntityForName:@"Price" inManagedObjectContext:self.managedObjectContext];
+    result.value = value;
     return result;
 }
 

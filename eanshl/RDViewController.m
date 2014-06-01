@@ -43,6 +43,13 @@
 }
 
 - (IBAction)sendToToshl:(id)sender {
+    if (_barcode.product == nil) {
+        Product *product = [_modelManager createProductWithName:_productNameTextField.text];
+        Price *price = [_modelManager createPriceWithValue:_moneyTextField.text];
+        price.product = product;
+        product.barcode = _barcode;
+    }
+
     [_modelManager save];
 }
 
