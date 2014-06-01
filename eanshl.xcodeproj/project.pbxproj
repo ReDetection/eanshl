@@ -37,6 +37,7 @@
 		36F4A0BD193AF27E0077D1A5 /* Store.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F4A0BC193AF27E0077D1A5 /* Store.m */; };
 		36F4A0C0193AF27E0077D1A5 /* Barcode.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F4A0BF193AF27E0077D1A5 /* Barcode.m */; };
 		36F4A0C3193AF27E0077D1A5 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F4A0C2193AF27E0077D1A5 /* Product.m */; };
+		36F4A115193B72410077D1A5 /* AuthorizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F4A114193B72410077D1A5 /* AuthorizeViewController.m */; };
 		420CE956174C867BBDBE1D18 /* ModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 420CECA5FC26948899B71D5A /* ModelManager.m */; };
 		A79BC09BFDAA43EB9B3C782A /* libPods-eanshl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B1E00C9FAA481C8A8184B9 /* libPods-eanshl.a */; };
 /* End PBXBuildFile section */
@@ -95,6 +96,9 @@
 		36F4A0BF193AF27E0077D1A5 /* Barcode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Barcode.m; path = ../Model/Barcode.m; sourceTree = "<group>"; };
 		36F4A0C1193AF27E0077D1A5 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Product.h; path = ../Model/Product.h; sourceTree = "<group>"; };
 		36F4A0C2193AF27E0077D1A5 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Product.m; path = ../Model/Product.m; sourceTree = "<group>"; };
+		36F4A113193B72410077D1A5 /* AuthorizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorizeViewController.h; sourceTree = "<group>"; };
+		36F4A114193B72410077D1A5 /* AuthorizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorizeViewController.m; sourceTree = "<group>"; };
+		420CE2354413A18955BC7FD0 /* Secure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Secure.h; sourceTree = "<group>"; };
 		420CE5E56D6B2FE70C118656 /* ModelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelManager.h; sourceTree = "<group>"; };
 		420CECA5FC26948899B71D5A /* ModelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelManager.m; sourceTree = "<group>"; };
 		F5B1E00C9FAA481C8A8184B9 /* libPods-eanshl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-eanshl.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,15 +183,12 @@
 		36F4A064193A29E60077D1A5 /* eanshl */ = {
 			isa = PBXGroup;
 			children = (
-				36F4A0A2193A44E10077D1A5 /* Scanner */,
-				36F4A095193A2A3A0077D1A5 /* Network */,
-				36F4A094193A2A2C0077D1A5 /* Model */,
-				36F4A093193A2A010077D1A5 /* UI */,
 				36F4A06D193A29E60077D1A5 /* RDAppDelegate.h */,
 				36F4A06E193A29E60077D1A5 /* RDAppDelegate.m */,
-				36F4A070193A29E60077D1A5 /* Main.storyboard */,
-				36F4A073193A29E60077D1A5 /* RDViewController.h */,
-				36F4A074193A29E60077D1A5 /* RDViewController.m */,
+				36F4A093193A2A010077D1A5 /* UI */,
+				36F4A094193A2A2C0077D1A5 /* Model */,
+				36F4A112193B71010077D1A5 /* Toshl */,
+				36F4A0A2193A44E10077D1A5 /* Scanner */,
 				36F4A076193A29E60077D1A5 /* Images.xcassets */,
 				36F4A065193A29E60077D1A5 /* Supporting Files */,
 			);
@@ -226,6 +227,11 @@
 		36F4A093193A2A010077D1A5 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				36F4A070193A29E60077D1A5 /* Main.storyboard */,
+				36F4A073193A29E60077D1A5 /* RDViewController.h */,
+				36F4A074193A29E60077D1A5 /* RDViewController.m */,
+				36F4A113193B72410077D1A5 /* AuthorizeViewController.h */,
+				36F4A114193B72410077D1A5 /* AuthorizeViewController.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -250,13 +256,6 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		36F4A095193A2A3A0077D1A5 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Network;
-			sourceTree = "<group>";
-		};
 		36F4A0A2193A44E10077D1A5 /* Scanner */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +263,14 @@
 				36F4A0A4193A45010077D1A5 /* Scanner.mm */,
 			);
 			name = Scanner;
+			sourceTree = "<group>";
+		};
+		36F4A112193B71010077D1A5 /* Toshl */ = {
+			isa = PBXGroup;
+			children = (
+				420CE2354413A18955BC7FD0 /* Secure.h */,
+			);
+			name = Toshl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -405,6 +412,7 @@
 				36F4A0C0193AF27E0077D1A5 /* Barcode.m in Sources */,
 				36F4A06B193A29E60077D1A5 /* main.m in Sources */,
 				36F4A0A5193A45010077D1A5 /* Scanner.mm in Sources */,
+				36F4A115193B72410077D1A5 /* AuthorizeViewController.m in Sources */,
 				36F4A075193A29E60077D1A5 /* RDViewController.m in Sources */,
 				36F4A0BA193AF27E0077D1A5 /* Price.m in Sources */,
 				36F4A0BD193AF27E0077D1A5 /* Store.m in Sources */,

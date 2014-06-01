@@ -12,6 +12,8 @@
 #import "Product.h"
 #import "Barcode.h"
 #import "Price.h"
+#import "AuthorizeViewController.h"
+#import "Secure.h"
 #import <ScanditSDK/ScanditSDKBarcodePicker.h>
 
 @interface RDViewController () <UITextFieldDelegate>
@@ -30,6 +32,22 @@
     [super viewDidLoad];
 
     _modelManager = [[ModelManager alloc] init];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+
+    [self performSegueWithIdentifier:@"authorize" sender:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    __weak AuthorizeViewController *dst = segue.destinationViewController;
+    dst.clientID = TOSHL_CLIENT_ID;
+    dst.scope = @"expenses:rw";
+    dst.completion = ^(NSString *authorization_code, NSError *error){
+        NSLog(@"auth code: %@", authorization_code);
+        [dst dismissViewControllerAnimated:YES completion:nil];
+    };
 }
 
 - (IBAction)scanButtonPressed:(id)sender {
