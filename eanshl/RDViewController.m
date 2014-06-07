@@ -16,6 +16,7 @@
 #import "Secure.h"
 #import "RDToshl.h"
 #import "RDToshlExpense.h"
+#import "ToshlTag.h"
 
 @interface RDViewController () <UITextFieldDelegate>
 @property(nonatomic, strong) ModelManager *modelManager;
@@ -81,11 +82,17 @@
 - (IBAction)sendToToshl:(id)sender {
     _moneyTextField.text = [_moneyTextField.text stringByReplacingOccurrencesOfString:@"," withString:@"."];
 
+    NSArray *tags = [self tagsArrayFromText:_tagsTextField.text];
     if (_barcode.product == nil) {
         Product *product = [_modelManager createProductWithName:_productNameTextField.text];
         Price *price = [_modelManager createPriceWithValue:_moneyTextField.text];
         price.product = product;
         product.barcode = _barcode;
+
+        for (NSString *tagString in tags) {
+            ToshlTag *tag = [_modelManager findOrCreateTagWithName:tagString];
+            [product addTagsObject:tag];
+        }
     }
 
     [_modelManager save];
@@ -95,7 +102,7 @@
     expense.date = [NSDate date];
     expense.amount = @(_moneyTextField.text.doubleValue);
     expense.currency = @"RUB";
-    expense.tags = [self tagsArrayFromText:_tagsTextField.text];
+    expense.tags = tags;
     expense.comment = _productNameTextField.text;
     void (^sendBlock)() = ^{
         [_toshlAPI createExpense:expense success:^{
@@ -124,6 +131,9 @@
             Price *price = product.prices.anyObject;
             _moneyTextField.text = price.value;
         }
+
+        _tagsTextField.text = [[[product.tags valueForKeyPath:@"@distinctUnionOfObjects.name"] allObjects] componentsJoinedByString:@", "];
+
     } else {
         _productNameTextField.text = @"Введите имя продукта";
         [_productNameTextField becomeFirstResponder];

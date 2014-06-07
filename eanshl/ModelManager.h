@@ -12,11 +12,14 @@
 @interface ModelManager : NSObject
 
 - (Barcode *)barcodeWithEanString:(NSString *)ean;
+- (ToshlTag *)tagWithName:(NSString *)name;
 
 - (Barcode *)createBarcodeWithString:(NSString *)code;
 - (Product *)createProductWithName:(NSString *)name;
 - (ToshlTag *)createTagWithName:(NSString *)name;
 - (Price *)createPriceWithValue:(NSString *)value;
+
+- (ToshlTag *)findOrCreateTagWithName:(NSString *)name;
 
 - (void)save;
 @end

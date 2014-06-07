@@ -76,6 +76,14 @@
     return results.count > 0 ? results[0] : nil;
 }
 
+- (ToshlTag *)tagWithName:(NSString *)name {
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"ToshlTag"];
+    fetchRequest.fetchLimit = 1;
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"name == %@", name];
+    NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil]; //TODO check for errors
+    return results.count > 0 ? results[0] : nil;
+}
+
 - (Barcode *)createBarcodeWithString:(NSString *)code {
     Barcode *result = [NSEntityDescription insertNewObjectForEntityForName:@"Barcode" inManagedObjectContext:self.managedObjectContext];
     result.barcode = code;
@@ -92,6 +100,14 @@
     ToshlTag *result = [NSEntityDescription insertNewObjectForEntityForName:@"ToshlTag" inManagedObjectContext:self.managedObjectContext];
     result.name = name;
     return result;
+}
+
+- (ToshlTag *)findOrCreateTagWithName:(NSString *)name {
+    ToshlTag *tag = [self tagWithName:name];
+    if (tag == nil) {
+        tag = [self createTagWithName:name];
+    }
+    return tag;
 }
 
 - (Price *)createPriceWithValue:(NSString *)value {
