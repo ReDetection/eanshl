@@ -8,7 +8,7 @@
 
 #import "AuthorizeViewController.h"
 
-static NSString *const redirectURLString = @"http://127.0.0.1/";
+NSString *const redirectURLString = @"http://127.0.0.1/";
 
 @interface AuthorizeViewController () <UIWebViewDelegate, UIBarPositioningDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;

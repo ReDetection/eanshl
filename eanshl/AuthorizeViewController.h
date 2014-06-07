@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSString *const redirectURLString;
+
 @interface AuthorizeViewController : UIViewController
 
 @property (nonatomic, strong) NSString *clientID;
