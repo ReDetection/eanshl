@@ -74,6 +74,19 @@ static NSString *const TOSHL_API_URL_STRING = @"https://api.toshl.com";
     }];
 }
 
+- (void)createExpense:(RDToshlExpense *)expense success:(void(^)())successBlock fail:(void(^)(NSError *error))failBlock {
+    [_restkit postObject:expense path:@"/expenses" parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        if (successBlock != nil) {
+            successBlock();
+        }
+
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        if (failBlock) {
+            failBlock(error);
+        }
+    }];
+}
+
 
 - (void)registerMappings {
     NSIndexSet *successGETStatusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful);
@@ -93,7 +106,17 @@ static NSString *const TOSHL_API_URL_STRING = @"https://api.toshl.com";
 
     [_restkit addResponseDescriptor:userDescriptor];
 
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"yyyy-MM-dd";
+    dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+
     RKObjectMapping *expenseMapping = [RKObjectMapping mappingForClass:[RDToshlExpense class]];
+    expenseMapping.valueTransformer = [RKCompoundValueTransformer compoundValueTransformerWithValueTransformers:@[
+            dateFormatter,
+            [RKValueTransformer nullValueTransformer],
+            [RKValueTransformer keyOfDictionaryValueTransformer],
+    ]];
+
     [expenseMapping addAttributeMappingsFromDictionary:@{
             @"id": @"identifier",
             @"amount": @"amount",
@@ -108,6 +131,13 @@ static NSString *const TOSHL_API_URL_STRING = @"https://api.toshl.com";
                                                                                                   keyPath:nil
                                                                                               statusCodes:successGETStatusCodes];
     [_restkit addResponseDescriptor:expenseResponseDescriptor];
+
+
+    RKRequestDescriptor *expenseRequestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:[expenseMapping inverseMapping]
+                                                                                           objectClass:[RDToshlExpense class]
+                                                                                           rootKeyPath:nil
+                                                                                                method:RKRequestMethodPOST];
+    [_restkit addRequestDescriptor:expenseRequestDescriptor];
 
 
 }

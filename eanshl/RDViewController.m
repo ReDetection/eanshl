@@ -14,11 +14,13 @@
 #import "Price.h"
 #import "AuthorizeViewController.h"
 #import "Secure.h"
-#import <ScanditSDK/ScanditSDKBarcodePicker.h>
+#import "RDToshl.h"
+#import "RDToshlExpense.h"
 
 @interface RDViewController () <UITextFieldDelegate>
 @property(nonatomic, strong) ModelManager *modelManager;
 @property(nonatomic, strong) Barcode *barcode;
+@property(nonatomic, strong) RDToshl *toshlAPI;
 
 @property (weak, nonatomic) IBOutlet UITextField *productNameTextField;
 @property (weak, nonatomic) IBOutlet UILabel *eanLabel;
@@ -34,19 +36,25 @@
     _modelManager = [[ModelManager alloc] init];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-
-    [self performSegueWithIdentifier:@"authorize" sender:nil];
-}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     __weak AuthorizeViewController *dst = segue.destinationViewController;
     dst.clientID = TOSHL_CLIENT_ID;
     dst.scope = @"expenses:rw";
     dst.completion = ^(NSString *authorization_code, NSError *error){
-        NSLog(@"auth code: %@", authorization_code);
-        [dst dismissViewControllerAnimated:YES completion:nil];
+        if (authorization_code != nil) {
+            [dst dismissViewControllerAnimated:YES completion:nil];
+            [_toshlAPI authorizeWithCode:authorization_code redirectURI:redirectURLString success:^{
+                if (sender != nil) {
+                    void (^op)() = sender;
+                    op();
+                }
+
+            } fail:^(NSError *error) {
+                //TODO alert
+                _toshlAPI = nil;
+                NSLog(@"%@", error);
+            }];
+        }
     };
 }
 
@@ -60,7 +68,19 @@
     } fromViewController:self];
 }
 
+- (NSArray *)tagsArrayFromText:(NSString *)tagsString {
+    NSArray *array = [tagsString componentsSeparatedByString:@","];
+    NSMutableArray *result = [NSMutableArray arrayWithCapacity:array.count];
+    for (NSString *tag in array) {
+        NSString *trimmedTag = [tag stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" "]];
+        [result addObject:trimmedTag];
+    }
+    return result;
+}
+
 - (IBAction)sendToToshl:(id)sender {
+    _moneyTextField.text = [_moneyTextField.text stringByReplacingOccurrencesOfString:@"," withString:@"."];
+
     if (_barcode.product == nil) {
         Product *product = [_modelManager createProductWithName:_productNameTextField.text];
         Price *price = [_modelManager createPriceWithValue:_moneyTextField.text];
@@ -69,6 +89,29 @@
     }
 
     [_modelManager save];
+
+
+    RDToshlExpense *expense = [[RDToshlExpense alloc] init];
+    expense.date = [NSDate date];
+    expense.amount = @(_moneyTextField.text.doubleValue);
+    expense.currency = @"RUB";
+    expense.tags = [self tagsArrayFromText:_tagsTextField.text];
+    expense.comment = _productNameTextField.text;
+    void (^sendBlock)() = ^{
+        [_toshlAPI createExpense:expense success:^{
+            NSLog(@"success");
+        } fail:^(NSError *error) {
+            NSLog(@"error: %@", error);
+        }];
+    };
+
+    if (_toshlAPI == nil) {
+        _toshlAPI = [[RDToshl alloc] initWithClientID:TOSHL_CLIENT_ID secret:TOSHL_CLIENT_SECRET];
+        [self performSegueWithIdentifier:@"authorize" sender:sendBlock];
+
+    } else {
+        sendBlock();
+    }
 }
 
 - (void)setBarcode:(Barcode *)barcode {

@@ -5,6 +5,7 @@
 
 
 @class RDToshlUser;
+@class RDToshlExpense;
 
 @interface RDToshl : NSObject
 
@@ -13,5 +14,6 @@
 
 - (void)userInfoWithSuccess:(void (^)(RDToshlUser *userInfo))successBlock fail:(void (^)(NSError *error))failBlock;
 - (void)expensesPageWithSuccess:(void (^)(NSArray *expenses))successBlock fail:(void (^)(NSError *error))failBlock;
+- (void)createExpense:(RDToshlExpense *)expense success:(void (^)())successBlock fail:(void (^)(NSError *error))failBlock;
 
 @end
