@@ -38,6 +38,8 @@
 		36F4A0C0193AF27E0077D1A5 /* Barcode.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F4A0BF193AF27E0077D1A5 /* Barcode.m */; };
 		36F4A0C3193AF27E0077D1A5 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F4A0C2193AF27E0077D1A5 /* Product.m */; };
 		36F4A115193B72410077D1A5 /* AuthorizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F4A114193B72410077D1A5 /* AuthorizeViewController.m */; };
+		420CE47D52E706F4C3E57766 /* RDToshl.m in Sources */ = {isa = PBXBuildFile; fileRef = 420CEADF32442FEF371F0606 /* RDToshl.m */; };
+		420CE782E7EEACB334477DC7 /* RDToshlUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 420CE419C6C24079D6EFC4CF /* RDToshlUser.m */; };
 		420CE956174C867BBDBE1D18 /* ModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 420CECA5FC26948899B71D5A /* ModelManager.m */; };
 		A79BC09BFDAA43EB9B3C782A /* libPods-eanshl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B1E00C9FAA481C8A8184B9 /* libPods-eanshl.a */; };
 /* End PBXBuildFile section */
@@ -99,7 +101,11 @@
 		36F4A113193B72410077D1A5 /* AuthorizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorizeViewController.h; sourceTree = "<group>"; };
 		36F4A114193B72410077D1A5 /* AuthorizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorizeViewController.m; sourceTree = "<group>"; };
 		420CE2354413A18955BC7FD0 /* Secure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Secure.h; sourceTree = "<group>"; };
+		420CE2E064643CDBB23F2293 /* RDToshl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDToshl.h; sourceTree = "<group>"; };
+		420CE419C6C24079D6EFC4CF /* RDToshlUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDToshlUser.m; sourceTree = "<group>"; };
+		420CE5D5164BE587CAE26637 /* RDToshlUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDToshlUser.h; sourceTree = "<group>"; };
 		420CE5E56D6B2FE70C118656 /* ModelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelManager.h; sourceTree = "<group>"; };
+		420CEADF32442FEF371F0606 /* RDToshl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDToshl.m; sourceTree = "<group>"; };
 		420CECA5FC26948899B71D5A /* ModelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelManager.m; sourceTree = "<group>"; };
 		F5B1E00C9FAA481C8A8184B9 /* libPods-eanshl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-eanshl.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -269,8 +275,20 @@
 			isa = PBXGroup;
 			children = (
 				420CE2354413A18955BC7FD0 /* Secure.h */,
+				420CEADF32442FEF371F0606 /* RDToshl.m */,
+				420CE2E064643CDBB23F2293 /* RDToshl.h */,
+				420CE722E31AE09A3EE58648 /* Model */,
 			);
 			name = Toshl;
+			sourceTree = "<group>";
+		};
+		420CE722E31AE09A3EE58648 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				420CE419C6C24079D6EFC4CF /* RDToshlUser.m */,
+				420CE5D5164BE587CAE26637 /* RDToshlUser.h */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -418,6 +436,8 @@
 				36F4A0BD193AF27E0077D1A5 /* Store.m in Sources */,
 				36F4A0B7193AF27D0077D1A5 /* ToshlTag.m in Sources */,
 				420CE956174C867BBDBE1D18 /* ModelManager.m in Sources */,
+				420CE47D52E706F4C3E57766 /* RDToshl.m in Sources */,
+				420CE782E7EEACB334477DC7 /* RDToshlUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
