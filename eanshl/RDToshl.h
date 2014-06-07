@@ -12,5 +12,6 @@
 - (void)authorizeWithCode:(NSString *)code redirectURI:(NSString *)redirectURI success:(void (^)())successBlock fail:(void (^)(NSError *error))failBlock;
 
 - (void)userInfoWithSuccess:(void (^)(RDToshlUser *userInfo))successBlock fail:(void (^)(NSError *error))failBlock;
+- (void)expensesPageWithSuccess:(void (^)(NSArray *expenses))successBlock fail:(void (^)(NSError *error))failBlock;
 
 @end

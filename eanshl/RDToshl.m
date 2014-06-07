@@ -7,6 +7,7 @@
 #import <RestKit/RestKit.h>
 #import "RDToshl.h"
 #import "RDToshlUser.h"
+#import "RDToshlExpense.h"
 
 static NSString *const TOSHL_AUTH_URL_STRING = @"https://toshl.com";
 static NSString *const TOSHL_TOKEN_BY_AUTH_CODE_PATH = @"/oauth2/token";
@@ -60,7 +61,23 @@ static NSString *const TOSHL_API_URL_STRING = @"https://api.toshl.com";
     }];
 }
 
+- (void)expensesPageWithSuccess:(void(^)(NSArray *expenses))successBlock fail:(void(^)(NSError *error))failBlock {
+    [_restkit getObjectsAtPath:@"/expenses" parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        if (successBlock != NULL) {
+            successBlock(mappingResult.array);
+        }
+
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        if (failBlock != NULL) {
+            failBlock(error);
+        }
+    }];
+}
+
+
 - (void)registerMappings {
+    NSIndexSet *successGETStatusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful);
+
     RKObjectMapping *userMapping = [RKObjectMapping mappingForClass:[RDToshlUser class]];
     [userMapping addAttributeMappingsFromDictionary:@{
             @"id" : @"identifier",
@@ -72,9 +89,27 @@ static NSString *const TOSHL_API_URL_STRING = @"https://api.toshl.com";
                                                                                         method:RKRequestMethodGET
                                                                                    pathPattern:@"/me"
                                                                                        keyPath:nil
-                                                                                   statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+                                                                                   statusCodes:successGETStatusCodes];
 
     [_restkit addResponseDescriptor:userDescriptor];
+
+    RKObjectMapping *expenseMapping = [RKObjectMapping mappingForClass:[RDToshlExpense class]];
+    [expenseMapping addAttributeMappingsFromDictionary:@{
+            @"id": @"identifier",
+            @"amount": @"amount",
+            @"currency": @"currency",
+            @"date": @"date",
+            @"desc": @"comment",
+            @"tags": @"tags",
+    }];
+    RKResponseDescriptor *expenseResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:expenseMapping
+                                                                                                   method:RKRequestMethodGET
+                                                                                              pathPattern:@"/expenses"
+                                                                                                  keyPath:nil
+                                                                                              statusCodes:successGETStatusCodes];
+    [_restkit addResponseDescriptor:expenseResponseDescriptor];
+
+
 }
 
 @end
