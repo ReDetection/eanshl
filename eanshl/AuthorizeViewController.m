@@ -20,7 +20,7 @@ NSString *const redirectURLString = @"http://127.0.0.1/";
 
 
 - (IBAction)refreshButton:(id)sender {
-    [self.webView reload];
+    [self tryOpenAuthPage];
 }
 
 - (void)viewDidLoad {
@@ -51,6 +51,7 @@ NSString *const redirectURLString = @"http://127.0.0.1/";
 
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    //FIXME some faulty URLs pass filter and goes into error method
     if ([request.URL.absoluteString hasPrefix:redirectURLString]) {
         NSArray *pairs = [request.URL.query componentsSeparatedByString:@"&"];
         for (NSString *pair in pairs) {
@@ -76,6 +77,11 @@ NSString *const redirectURLString = @"http://127.0.0.1/";
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [self.activityIndicator stopAnimating];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    [self.activityIndicator stopAnimating];
+    self.completion(nil, error);
 }
 
 - (UIBarPosition)positionForBar:(id <UIBarPositioning>)bar {
