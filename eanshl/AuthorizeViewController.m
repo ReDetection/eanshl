@@ -42,7 +42,8 @@ static NSString *const redirectURLString = @"http://127.0.0.1/";
 - (void)tryOpenAuthPage {
     if (self.clientID != nil && self.scope != nil) {
         NSString *encodedRedirect = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(NULL, (__bridge CFStringRef)redirectURLString, NULL, (CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
-        NSString *urlString = [NSString stringWithFormat:@"https://toshl.com/oauth2/authorize?client_id=%@&response_type=code&scope=%@&redirect_uri=%@&state=98765", self.clientID, self.scope, encodedRedirect];
+        NSString *encodedScope = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(NULL, (__bridge CFStringRef)self.scope, NULL, (CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
+        NSString *urlString = [NSString stringWithFormat:@"https://toshl.com/oauth2/authorize?client_id=%@&response_type=code&scope=%@&redirect_uri=%@&state=98765", self.clientID, encodedScope, encodedRedirect];
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
         [_webView loadRequest:request];
     }
