@@ -51,7 +51,6 @@ NSString *const redirectURLString = @"http://127.0.0.1/";
 
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    //FIXME some faulty URLs pass filter and goes into error method
     if ([request.URL.absoluteString hasPrefix:redirectURLString]) {
         NSArray *pairs = [request.URL.query componentsSeparatedByString:@"&"];
         for (NSString *pair in pairs) {
@@ -81,7 +80,11 @@ NSString *const redirectURLString = @"http://127.0.0.1/";
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     [self.activityIndicator stopAnimating];
-    self.completion(nil, error);
+    if ([error.domain isEqualToString:@"WebKitErrorDomain"] && error.code == 102) { //102 == WebKitErrorFrameLoadInterruptedByPolicyChange
+        //we've interrupted download because of handled code
+    } else {
+        self.completion(nil, error);
+    }
 }
 
 - (UIBarPosition)positionForBar:(id <UIBarPositioning>)bar {
