@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 redetection. All rights reserved.
 //
 
+#import <ALAlertBanner/ALAlertBanner.h>
+#import <libextobjc/EXTScope.h>
 #import "RDViewController.h"
 #import "Scanner.h"
 #import "ModelManager.h"
@@ -17,7 +19,6 @@
 #import "RDToshl.h"
 #import "RDToshlExpense.h"
 #import "ToshlTag.h"
-#import "ALAlertBanner.h"
 
 @interface RDViewController () <UITextFieldDelegate>
 @property(nonatomic, strong) ModelManager *modelManager;
@@ -42,6 +43,7 @@
     __weak AuthorizeViewController *dst = segue.destinationViewController;
     dst.clientID = TOSHL_CLIENT_ID;
     dst.scope = @"expenses:rw";
+    @weakify(self);
     dst.completion = ^(NSString *authorization_code, NSError *error){
         if (authorization_code != nil) {
             [dst dismissViewControllerAnimated:YES completion:nil];
@@ -51,37 +53,45 @@
                     op();
                 }
 
-            } fail:^(NSError *error) {
+            } fail:^(NSError *innerError) {
                 _toshlAPI = nil;
-                [self displayError:error];
+                @strongify(self);
+                [self displayError:innerError];
             }];
         } else {
+             @strongify(self);
             [self displayError:error];
         }
     };
 }
 
 - (void)displayError:(NSError *)error {
+    @weakify(self);
     dispatch_async(dispatch_get_main_queue(), ^{
         NSLog(@"error occured: %@", error);
+        @strongify(self);
         ALAlertBanner *banner = [ALAlertBanner alertBannerForView:self.view.window style:ALAlertBannerStyleFailure position:ALAlertBannerPositionTop title:@"Error occured!" subtitle:error.localizedDescription];
         [banner show];
     });
 }
 
 - (void)displaySuccess:(NSString *)message {
+    @weakify(self);
     dispatch_async(dispatch_get_main_queue(), ^{
+        @strongify(self);
         ALAlertBanner *banner = [ALAlertBanner alertBannerForView:self.view.window style:ALAlertBannerStyleSuccess position:ALAlertBannerPositionTop title:message];
         [banner show];
     });
 }
 
 - (IBAction)scanButtonPressed:(id)sender {
+    @weakify(self);
     [Scanner scanWithCompletion:^(NSString *code) {
         Barcode *barcode = [_modelManager barcodeWithEanString:code];
         if (barcode == nil) {
             barcode = [_modelManager createBarcodeWithString:code];
         }
+        @strongify(self);
         self.barcode = barcode;
     } fromViewController:self];
 }
@@ -121,10 +131,14 @@
     expense.currency = @"RUB";
     expense.tags = tags;
     expense.comment = _productNameTextField.text;
+
+    @weakify(self);
     void (^sendBlock)() = ^{
         [_toshlAPI createExpense:expense success:^{
+            @strongify(self);
             [self displaySuccess:@"Expense sent to toshl.com"];
         } fail:^(NSError *error) {
+            @strongify(self);
             [self displayError:error];
         }];
     };
