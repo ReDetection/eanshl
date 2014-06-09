@@ -137,10 +137,6 @@
     } else {
         _productNameTextField.text = @"Введите имя продукта";
         [_productNameTextField becomeFirstResponder];
-
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [_productNameTextField selectAll:nil];
-        });
     }
 }
 
@@ -154,6 +150,14 @@
         [self sendToToshl:nil];
     }
     return NO;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if ([textField isFirstResponder]) {
+            [textField selectAll:nil];
+        }
+    });
 }
 
 @end
