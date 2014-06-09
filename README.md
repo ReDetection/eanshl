@@ -8,6 +8,13 @@ Regular case is when you have all barcodes in the database, so you just scan bar
 But at first time you have no barcodes, so before sending you should also fill name and tags.
 Everything will be remembered so next time you just need to scan and tap “Send”.
 
+## Installation
+
+Before opening workspace you have to install dependencies with cocoapods. 
+```
+pod install
+```
+
 ## Contribute
 
 Feel free to contribute :)
