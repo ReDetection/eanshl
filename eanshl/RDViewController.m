@@ -17,6 +17,7 @@
 #import "RDToshl.h"
 #import "RDToshlExpense.h"
 #import "ToshlTag.h"
+#import "ALAlertBanner.h"
 
 @interface RDViewController () <UITextFieldDelegate>
 @property(nonatomic, strong) ModelManager *modelManager;
@@ -51,12 +52,28 @@
                 }
 
             } fail:^(NSError *error) {
-                //TODO alert
                 _toshlAPI = nil;
-                NSLog(@"%@", error);
+                [self displayError:error];
             }];
+        } else {
+            [self displayError:error];
         }
     };
+}
+
+- (void)displayError:(NSError *)error {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSLog(@"error occured: %@", error);
+        ALAlertBanner *banner = [ALAlertBanner alertBannerForView:self.view.window style:ALAlertBannerStyleFailure position:ALAlertBannerPositionTop title:@"Error occured!" subtitle:error.localizedDescription];
+        [banner show];
+    });
+}
+
+- (void)displaySuccess:(NSString *)message {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        ALAlertBanner *banner = [ALAlertBanner alertBannerForView:self.view.window style:ALAlertBannerStyleSuccess position:ALAlertBannerPositionTop title:message];
+        [banner show];
+    });
 }
 
 - (IBAction)scanButtonPressed:(id)sender {
@@ -106,9 +123,9 @@
     expense.comment = _productNameTextField.text;
     void (^sendBlock)() = ^{
         [_toshlAPI createExpense:expense success:^{
-            NSLog(@"success");
+            [self displaySuccess:@"Expense sent to toshl.com"];
         } fail:^(NSError *error) {
-            NSLog(@"error: %@", error);
+            [self displayError:error];
         }];
     };
 
