@@ -5,6 +5,41 @@ PODS:
   - ALAlertBanner (0.3.1)
   - ISO8601DateFormatterValueTransformer (0.6.0):
     - RKValueTransformers (~> 1.1.0)
+  - libextobjc (0.4):
+    - libextobjc/EXTADT
+    - libextobjc/EXTConcreteProtocol
+    - libextobjc/EXTKeyPathCoding
+    - libextobjc/EXTNil
+    - libextobjc/EXTSafeCategory
+    - libextobjc/EXTScope
+    - libextobjc/EXTSelectorChecking
+    - libextobjc/EXTSynthesize
+    - libextobjc/NSInvocation+EXT
+    - libextobjc/NSMethodSignature+EXT
+    - libextobjc/RuntimeExtensions
+    - libextobjc/UmbrellaHeader
+  - libextobjc/EXTADT (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTConcreteProtocol (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTKeyPathCoding (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTNil (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSafeCategory (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTScope (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSelectorChecking (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSynthesize (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/NSInvocation+EXT (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/NSMethodSignature+EXT (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/RuntimeExtensions (0.4)
+  - libextobjc/UmbrellaHeader (0.4)
   - RestKit (0.23.1):
     - RestKit/Core
   - RestKit/Core (0.23.1):
@@ -32,6 +67,7 @@ PODS:
 DEPENDENCIES:
   - AFOAuth2Client (~> 0.1.2)
   - ALAlertBanner (from `https://github.com/ReDetection/ALAlertBanner.git`)
+  - libextobjc (~> 0.4)
   - RestKit (~> 0.23.1)
   - ScanditSDK (~> 4.0.0)
 
@@ -44,6 +80,7 @@ SPEC CHECKSUMS:
   AFOAuth2Client: 4f05d29e0a26c7ddf529dd7c4480af6ee1e982c6
   ALAlertBanner: 16235298226059cd876a9de0a5d7f9bac6a79459
   ISO8601DateFormatterValueTransformer: a705384ea6531255258e25b6480ba1180db703a0
+  libextobjc: ba42e4111f433273a886cd54f0ddaddb7f62f82f
   RestKit: 0b5f1bbc43b81beba158262a1adae48ac062eb1e
   RKValueTransformers: b705e7b4651b9206b94600408462b74554bba969
   ScanditSDK: f6b232993d44f22cebbf65dfa1dabd8ea50b8690
