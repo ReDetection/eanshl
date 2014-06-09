@@ -41,6 +41,14 @@ install_resource()
       ;;
   esac
 }
+install_resource "ALAlertBanner/ALAlertBanner/Images/bannerAlert.png"
+install_resource "ALAlertBanner/ALAlertBanner/Images/bannerAlert@2x.png"
+install_resource "ALAlertBanner/ALAlertBanner/Images/bannerFailure.png"
+install_resource "ALAlertBanner/ALAlertBanner/Images/bannerFailure@2x.png"
+install_resource "ALAlertBanner/ALAlertBanner/Images/bannerNotify.png"
+install_resource "ALAlertBanner/ALAlertBanner/Images/bannerNotify@2x.png"
+install_resource "ALAlertBanner/ALAlertBanner/Images/bannerSuccess.png"
+install_resource "ALAlertBanner/ALAlertBanner/Images/bannerSuccess@2x.png"
 install_resource "ScanditSDK/ScanditSDK/beep.wav"
 install_resource "ScanditSDK/ScanditSDK/camera-swap-icon-pressed.png"
 install_resource "ScanditSDK/ScanditSDK/camera-swap-icon-pressed@2x.png"

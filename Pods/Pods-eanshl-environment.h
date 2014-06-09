@@ -18,6 +18,12 @@
 #define COCOAPODS_VERSION_MINOR_AFOAuth2Client 1
 #define COCOAPODS_VERSION_PATCH_AFOAuth2Client 2
 
+// ALAlertBanner
+#define COCOAPODS_POD_AVAILABLE_ALAlertBanner
+#define COCOAPODS_VERSION_MAJOR_ALAlertBanner 0
+#define COCOAPODS_VERSION_MINOR_ALAlertBanner 3
+#define COCOAPODS_VERSION_PATCH_ALAlertBanner 1
+
 // ISO8601DateFormatterValueTransformer
 #define COCOAPODS_POD_AVAILABLE_ISO8601DateFormatterValueTransformer
 #define COCOAPODS_VERSION_MAJOR_ISO8601DateFormatterValueTransformer 0

@@ -3,6 +3,7 @@
 
 target "eanshl" do
  pod 'ScanditSDK', '~> 4.0.0'
+ pod 'ALAlertBanner', :git => 'https://github.com/ReDetection/ALAlertBanner.git'
  
  # for the toshl api
  pod 'RestKit', '~> 0.23.1'
