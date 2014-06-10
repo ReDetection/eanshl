@@ -7,8 +7,7 @@
 //
 
 #import "AuthorizeViewController.h"
-
-NSString *const redirectURLString = @"http://127.0.0.1/";
+#import "urls.h"
 
 @interface AuthorizeViewController () <UIWebViewDelegate, UIBarPositioningDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
@@ -41,7 +40,7 @@ NSString *const redirectURLString = @"http://127.0.0.1/";
 
 - (void)tryOpenAuthPage {
     if (self.clientID != nil && self.scope != nil) {
-        NSString *encodedRedirect = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(NULL, (__bridge CFStringRef)redirectURLString, NULL, (CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
+        NSString *encodedRedirect = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(NULL, (__bridge CFStringRef)REDIRECT_URL_STRING, NULL, (CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
         NSString *encodedScope = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(NULL, (__bridge CFStringRef)self.scope, NULL, (CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
         NSString *urlString = [NSString stringWithFormat:@"https://toshl.com/oauth2/authorize?client_id=%@&response_type=code&scope=%@&redirect_uri=%@&state=98765", self.clientID, encodedScope, encodedRedirect];
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
@@ -51,7 +50,7 @@ NSString *const redirectURLString = @"http://127.0.0.1/";
 
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    if ([request.URL.absoluteString hasPrefix:redirectURLString]) {
+    if ([request.URL.absoluteString hasPrefix:REDIRECT_URL_STRING]) {
         NSArray *pairs = [request.URL.query componentsSeparatedByString:@"&"];
         for (NSString *pair in pairs) {
             NSArray *pairComponents = [pair componentsSeparatedByString:@"="];
