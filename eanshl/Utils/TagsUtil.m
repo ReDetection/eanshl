@@ -13,7 +13,9 @@
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:array.count];
     for (NSString *tag in array) {
         NSString *trimmedTag = [tag stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" "]];
-        [result addObject:trimmedTag];
+        if (trimmedTag.length > 0) {
+            [result addObject:trimmedTag];
+        }
     }
     return result;
 }

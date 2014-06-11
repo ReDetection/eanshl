@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36166854194838990041EE72 /* TagsUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 420CE613C0D8C97629C96B87 /* TagsUtil.m */; };
 		36F4A05F193A29E60077D1A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F4A05E193A29E60077D1A5 /* Foundation.framework */; };
 		36F4A061193A29E60077D1A5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F4A060193A29E60077D1A5 /* CoreGraphics.framework */; };
 		36F4A063193A29E60077D1A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F4A062193A29E60077D1A5 /* UIKit.framework */; };
@@ -19,7 +20,7 @@
 		36F4A07F193A29E60077D1A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F4A05E193A29E60077D1A5 /* Foundation.framework */; };
 		36F4A080193A29E60077D1A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F4A062193A29E60077D1A5 /* UIKit.framework */; };
 		36F4A088193A29E60077D1A5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 36F4A086193A29E60077D1A5 /* InfoPlist.strings */; };
-		36F4A08A193A29E60077D1A5 /* eanshlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F4A089193A29E60077D1A5 /* eanshlTests.m */; };
+		36F4A08A193A29E60077D1A5 /* TagsSplitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F4A089193A29E60077D1A5 /* TagsSplitTests.m */; };
 		36F4A099193A36080077D1A5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F4A098193A36080077D1A5 /* AVFoundation.framework */; };
 		36F4A09D193A36480077D1A5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F4A09C193A36480077D1A5 /* AudioToolbox.framework */; };
 		36F4A0A1193A42C70077D1A5 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F4A0A0193A42C70077D1A5 /* CoreMedia.framework */; };
@@ -75,7 +76,7 @@
 		36F4A07D193A29E60077D1A5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		36F4A085193A29E60077D1A5 /* eanshlTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "eanshlTests-Info.plist"; sourceTree = "<group>"; };
 		36F4A087193A29E60077D1A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		36F4A089193A29E60077D1A5 /* eanshlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = eanshlTests.m; sourceTree = "<group>"; };
+		36F4A089193A29E60077D1A5 /* TagsSplitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagsSplitTests.m; sourceTree = "<group>"; };
 		36F4A098193A36080077D1A5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		36F4A09A193A36350077D1A5 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		36F4A09C193A36480077D1A5 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -227,7 +228,7 @@
 		36F4A083193A29E60077D1A5 /* eanshlTests */ = {
 			isa = PBXGroup;
 			children = (
-				36F4A089193A29E60077D1A5 /* eanshlTests.m */,
+				36F4A089193A29E60077D1A5 /* TagsSplitTests.m */,
 				36F4A084193A29E60077D1A5 /* Supporting Files */,
 			);
 			path = eanshlTests;
@@ -373,11 +374,6 @@
 				CLASSPREFIX = RD;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = redetection;
-				TargetAttributes = {
-					36F4A07B193A29E60077D1A5 = {
-						TestTargetID = 36F4A05A193A29E60077D1A5;
-					};
-				};
 			};
 			buildConfigurationList = 36F4A056193A29E60077D1A5 /* Build configuration list for PBXProject "eanshl" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -481,7 +477,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36F4A08A193A29E60077D1A5 /* eanshlTests.m in Sources */,
+				36166854194838990041EE72 /* TagsUtil.m in Sources */,
+				36F4A08A193A29E60077D1A5 /* TagsSplitTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,7 +623,6 @@
 		36F4A091193A29E60077D1A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/eanshl.app/eanshl";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -640,7 +636,6 @@
 				);
 				INFOPLIST_FILE = "eanshlTests/eanshlTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -648,7 +643,6 @@
 		36F4A092193A29E60077D1A5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/eanshl.app/eanshl";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -658,7 +652,6 @@
 				GCC_PREFIX_HEADER = "eanshl/eanshl-Prefix.pch";
 				INFOPLIST_FILE = "eanshlTests/eanshlTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
