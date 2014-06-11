@@ -13,6 +13,7 @@
 #import "RDToshlExpense.h"
 #import "Secure.h"
 #import "urls.h"
+#import "TagsUtil.h"
 
 @interface ScanSendViewModel ()
 
@@ -52,7 +53,7 @@
             self.moneyString = price.value;
         }
 
-        self.tagsString= [[[product.tags valueForKeyPath:@"@distinctUnionOfObjects.name"] allObjects] componentsJoinedByString:@", "];
+        self.tagsString = [TagsUtil joinTags:product.tags];
         [self.delegate triggerFieldsRenew];
 
     } else {
@@ -60,18 +61,8 @@
     }
 }
 
-- (NSArray *)tagsArrayFromText:(NSString *)tagsString {
-    NSArray *array = [tagsString componentsSeparatedByString:@","];
-    NSMutableArray *result = [NSMutableArray arrayWithCapacity:array.count];
-    for (NSString *tag in array) {
-        NSString *trimmedTag = [tag stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" "]];
-        [result addObject:trimmedTag];
-    }
-    return result;
-}
-
 - (void)sendToToshl {
-    NSArray *tags = [self tagsArrayFromText:self.tagsString];
+    NSArray *tags = [TagsUtil tagsArrayFromString:self.tagsString];
     if (_barcode.product == nil) {
         Product *product = [_modelManager createProductWithName:self.productName];
         Price *price = [_modelManager createPriceWithValue:self.moneyString];
