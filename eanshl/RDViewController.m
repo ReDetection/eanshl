@@ -101,6 +101,7 @@
 }
 
 - (void)triggerEnterNewProduct {
+    _eanLabel.text = _viewModel.eanLabelText;
     _productNameTextField.text = @"Введите имя продукта";
     [_productNameTextField becomeFirstResponder];
 }
