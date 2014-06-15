@@ -48,16 +48,6 @@
 		A79BC09BFDAA43EB9B3C782A /* libPods-eanshl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B1E00C9FAA481C8A8184B9 /* libPods-eanshl.a */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		36F4A081193A29E60077D1A5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 36F4A053193A29E60077D1A5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 36F4A05A193A29E60077D1A5;
-			remoteInfo = eanshl;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		27A89FA0936843579B4641D4 /* Pods-eanshl.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eanshl.xcconfig"; path = "Pods/Pods-eanshl.xcconfig"; sourceTree = "<group>"; };
 		36F4A05B193A29E60077D1A5 /* eanshl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eanshl.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -358,7 +348,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				36F4A082193A29E60077D1A5 /* PBXTargetDependency */,
 			);
 			name = eanshlTests;
 			productName = eanshlTests;
@@ -483,14 +472,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		36F4A082193A29E60077D1A5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 36F4A05A193A29E60077D1A5 /* eanshl */;
-			targetProxy = 36F4A081193A29E60077D1A5 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		36F4A067193A29E60077D1A5 /* InfoPlist.strings */ = {
