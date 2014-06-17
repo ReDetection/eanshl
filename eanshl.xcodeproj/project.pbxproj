@@ -24,7 +24,6 @@
 		36F4A099193A36080077D1A5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F4A098193A36080077D1A5 /* AVFoundation.framework */; };
 		36F4A09D193A36480077D1A5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F4A09C193A36480077D1A5 /* AudioToolbox.framework */; };
 		36F4A0A1193A42C70077D1A5 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F4A0A0193A42C70077D1A5 /* CoreMedia.framework */; };
-		36F4A0A5193A45010077D1A5 /* Scanner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 36F4A0A4193A45010077D1A5 /* Scanner.mm */; };
 		36F4A0A7193AE2EB0077D1A5 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F4A0A6193AE2EB0077D1A5 /* libstdc++.dylib */; };
 		36F4A0A9193AE2F60077D1A5 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F4A0A8193AE2F60077D1A5 /* libiconv.dylib */; };
 		36F4A0AB193AE2FD0077D1A5 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F4A0AA193AE2FD0077D1A5 /* CoreVideo.framework */; };
@@ -41,6 +40,7 @@
 		420CE47D52E706F4C3E57766 /* RDToshl.m in Sources */ = {isa = PBXBuildFile; fileRef = 420CEADF32442FEF371F0606 /* RDToshl.m */; };
 		420CE782E7EEACB334477DC7 /* RDToshlUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 420CE419C6C24079D6EFC4CF /* RDToshlUser.m */; };
 		420CE81602286EDD8B48660C /* TagsUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 420CE613C0D8C97629C96B87 /* TagsUtil.m */; };
+		420CE946664A3F55F192D759 /* Scanner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 420CE0ABACB88748E349F62D /* Scanner.mm */; };
 		420CE956174C867BBDBE1D18 /* ModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 420CECA5FC26948899B71D5A /* ModelManager.m */; };
 		420CEA6BFEC164C04FE86C78 /* RDToshlExpense.m in Sources */ = {isa = PBXBuildFile; fileRef = 420CE97677611BFCEA18CCCF /* RDToshlExpense.m */; };
 		420CEBA7BD34F1BA72405287 /* RDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420CEF5E85888F616BD1343E /* RDViewController.m */; };
@@ -71,8 +71,6 @@
 		36F4A09A193A36350077D1A5 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		36F4A09C193A36480077D1A5 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		36F4A0A0193A42C70077D1A5 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		36F4A0A3193A45010077D1A5 /* Scanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scanner.h; sourceTree = "<group>"; };
-		36F4A0A4193A45010077D1A5 /* Scanner.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Scanner.mm; sourceTree = "<group>"; };
 		36F4A0A6193AE2EB0077D1A5 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		36F4A0A8193AE2F60077D1A5 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		36F4A0AA193AE2FD0077D1A5 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
@@ -92,6 +90,7 @@
 		36F4A0C2193AF27E0077D1A5 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Product.m; path = ../Model/Product.m; sourceTree = "<group>"; };
 		36F4A113193B72410077D1A5 /* AuthorizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorizeViewController.h; sourceTree = "<group>"; };
 		36F4A114193B72410077D1A5 /* AuthorizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorizeViewController.m; sourceTree = "<group>"; };
+		420CE0ABACB88748E349F62D /* Scanner.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Scanner.mm; sourceTree = "<group>"; };
 		420CE0C97931A75F9BF114D6 /* TagsUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagsUtil.h; sourceTree = "<group>"; };
 		420CE1F38DD21AE44A9D7C8C /* ScanSendViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanSendViewModel.m; sourceTree = "<group>"; };
 		420CE2354413A18955BC7FD0 /* Secure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Secure.h; sourceTree = "<group>"; };
@@ -102,6 +101,7 @@
 		420CE5E56D6B2FE70C118656 /* ModelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelManager.h; sourceTree = "<group>"; };
 		420CE613C0D8C97629C96B87 /* TagsUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagsUtil.m; sourceTree = "<group>"; };
 		420CE97677611BFCEA18CCCF /* RDToshlExpense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDToshlExpense.m; sourceTree = "<group>"; };
+		420CE9812BE670F6CC712FF3 /* Scanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scanner.h; sourceTree = "<group>"; };
 		420CE9DB8DCBDCB06F1B3307 /* ScanSendViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanSendViewModel.h; sourceTree = "<group>"; };
 		420CEADF32442FEF371F0606 /* RDToshl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDToshl.m; sourceTree = "<group>"; };
 		420CECA5FC26948899B71D5A /* ModelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelManager.m; sourceTree = "<group>"; };
@@ -195,11 +195,11 @@
 				36F4A093193A2A010077D1A5 /* UI */,
 				36F4A094193A2A2C0077D1A5 /* Model */,
 				36F4A112193B71010077D1A5 /* Toshl */,
-				36F4A0A2193A44E10077D1A5 /* Scanner */,
 				36F4A076193A29E60077D1A5 /* Images.xcassets */,
 				36F4A065193A29E60077D1A5 /* Supporting Files */,
 				420CED1BA8FE222BCED08F70 /* urls.h */,
 				420CE6E2D67A8FBEF7AAB7E5 /* Utils */,
+				420CEFAB60D4A77450AE1EEE /* ExternalEANSLookup */,
 			);
 			path = eanshl;
 			sourceTree = "<group>";
@@ -264,15 +264,6 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		36F4A0A2193A44E10077D1A5 /* Scanner */ = {
-			isa = PBXGroup;
-			children = (
-				36F4A0A3193A45010077D1A5 /* Scanner.h */,
-				36F4A0A4193A45010077D1A5 /* Scanner.mm */,
-			);
-			name = Scanner;
-			sourceTree = "<group>";
-		};
 		36F4A112193B71010077D1A5 /* Toshl */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,6 +280,8 @@
 			children = (
 				420CE613C0D8C97629C96B87 /* TagsUtil.m */,
 				420CE0C97931A75F9BF114D6 /* TagsUtil.h */,
+				420CE9812BE670F6CC712FF3 /* Scanner.h */,
+				420CE0ABACB88748E349F62D /* Scanner.mm */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -313,6 +306,13 @@
 				420CE9DB8DCBDCB06F1B3307 /* ScanSendViewModel.h */,
 			);
 			name = "ScanSend Screen";
+			sourceTree = "<group>";
+		};
+		420CEFAB60D4A77450AE1EEE /* ExternalEANSLookup */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ExternalEANSLookup;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -447,7 +447,6 @@
 				36F4A0C3193AF27E0077D1A5 /* Product.m in Sources */,
 				36F4A0C0193AF27E0077D1A5 /* Barcode.m in Sources */,
 				36F4A06B193A29E60077D1A5 /* main.m in Sources */,
-				36F4A0A5193A45010077D1A5 /* Scanner.mm in Sources */,
 				36F4A115193B72410077D1A5 /* AuthorizeViewController.m in Sources */,
 				36F4A0BA193AF27E0077D1A5 /* Price.m in Sources */,
 				36F4A0BD193AF27E0077D1A5 /* Store.m in Sources */,
@@ -459,6 +458,7 @@
 				420CEBA7BD34F1BA72405287 /* RDViewController.m in Sources */,
 				420CEE8DAE211B9BB18AD14E /* ScanSendViewModel.m in Sources */,
 				420CE81602286EDD8B48660C /* TagsUtil.m in Sources */,
+				420CE946664A3F55F192D759 /* Scanner.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
