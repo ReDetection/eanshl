@@ -68,12 +68,17 @@
 
 - (void)displayError:(NSError *)error {
     @weakify(self);
-    dispatch_async(dispatch_get_main_queue(), ^{
+    void (^showMessageBlock)() = ^{
         NSLog(@"error occured: %@", error);
         @strongify(self);
         ALAlertBanner *banner = [ALAlertBanner alertBannerForView:self.view.window style:ALAlertBannerStyleFailure position:ALAlertBannerPositionTop title:@"Error occured!" subtitle:error.localizedDescription];
         [banner show];
-    });
+    };
+    if (self.view.window != nil) {
+        dispatch_async(dispatch_get_main_queue(), showMessageBlock);
+    } else {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), showMessageBlock);
+    }
 }
 
 - (void)displaySuccess:(NSString *)message {
