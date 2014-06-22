@@ -12,6 +12,7 @@
 - (void)displaySuccess:(NSString *)message;
 - (void)triggerEnterNewProduct;
 - (void)triggerFieldsRenew;
+- (void)ifCuttedCode:(NSString *)cuttedCode shouldBeUsedInsteadOfFull:(NSString *)fullCode withCompletion:(void (^)(BOOL cutted))block;
 @end
 
 @interface ScanSendViewModel : NSObject

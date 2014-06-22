@@ -63,6 +63,7 @@ PODS:
   - ScanditSDK (4.0.0)
   - SOCKit (1.1)
   - TransitionKit (2.1.0)
+  - UIAlertView+Blocks (0.8.1)
 
 DEPENDENCIES:
   - AFOAuth2Client (~> 0.1.2)
@@ -70,6 +71,7 @@ DEPENDENCIES:
   - libextobjc (~> 0.4)
   - RestKit (~> 0.23.1)
   - ScanditSDK (~> 4.0.0)
+  - UIAlertView+Blocks (~> 0.8.1)
 
 EXTERNAL SOURCES:
   ALAlertBanner:
@@ -86,5 +88,6 @@ SPEC CHECKSUMS:
   ScanditSDK: f6b232993d44f22cebbf65dfa1dabd8ea50b8690
   SOCKit: d8d0dd3688ae1026c12367570da8fa8e1a6980fb
   TransitionKit: 6a6f3ddda38ae758778aa889dcb930e4f8d64edc
+  UIAlertView+Blocks: 0b749f1f7bd5131ff2233b30a406c1585a7171b2
 
 COCOAPODS: 0.33.1

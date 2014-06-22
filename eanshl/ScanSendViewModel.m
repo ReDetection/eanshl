@@ -14,11 +14,13 @@
 #import "Secure.h"
 #import "urls.h"
 #import "TagsUtil.h"
+#import "NSString+EANUtil.h"
 
 @interface ScanSendViewModel ()
 
 @property(nonatomic, strong) ModelManager *modelManager;
 @property(nonatomic, strong) Barcode *barcode;
+@property(nonatomic, strong) NSString *weight;
 @property(nonatomic, strong) RDToshl *toshlAPI;
 
 @property (nonatomic, strong, readwrite) NSString *eanLabelText;
@@ -35,11 +37,30 @@
 }
 
 - (void)didScanBarcode:(NSString *)code {
-    Barcode *barcode = [_modelManager barcodeWithEanString:code];
-    if (barcode == nil) {
-        barcode = [_modelManager createBarcodeWithString:code];
+    if ([code canHaveWeightInformation]) {
+        NSString *cuttedCode = [code cutOutWeightInformation];
+        Barcode *barcode = [_modelManager barcodeWithEanString:code] ?: [_modelManager barcodeWithEanString:cuttedCode];
+        if (barcode == nil) {
+            @weakify(self);
+            [self.delegate ifCuttedCode:cuttedCode shouldBeUsedInsteadOfFull:code withCompletion:^(BOOL cutted) {
+                @strongify(self);
+                _weight = cutted ? [code weight] : nil;
+                self.barcode = [_modelManager createBarcodeWithString: cutted ? cuttedCode : code];
+            }];
+
+        } else {
+            _weight = [barcode.barcode isEqual:cuttedCode] ? [code weight] : nil;
+            self.barcode = barcode;
+        }
+
+    } else {
+        Barcode *barcode = [_modelManager barcodeWithEanString:code];
+        if (barcode == nil) {
+            barcode = [_modelManager createBarcodeWithString:code];
+        }
+        _weight = nil;
+        self.barcode = barcode;
     }
-    self.barcode = barcode;
 }
 
 - (void)setBarcode:(Barcode *)barcode {
@@ -50,7 +71,12 @@
         self.productName = product.name;
         if (product.prices.count > 0) {
             Price *price = product.prices.anyObject;
-            self.moneyString = price.value;
+            if (_weight == nil) {
+                self.moneyString = price.value;
+            } else {
+                CGFloat weightComponent = [[@"0." stringByAppendingString:_weight] floatValue];
+                self.moneyString = [NSString stringWithFormat:@"%0.2f", weightComponent * price.value.floatValue];
+            }
         }
 
         self.tagsString = [TagsUtil joinTags:product.tags];
@@ -65,7 +91,17 @@
     NSArray *tags = [TagsUtil tagsArrayFromString:self.tagsString];
     if (_barcode.product == nil) {
         Product *product = [_modelManager createProductWithName:self.productName];
-        Price *price = [_modelManager createPriceWithValue:self.moneyString];
+
+        NSString *moneyString;
+        if (_weight == nil) {
+            moneyString = self.moneyString;
+        } else {
+            CGFloat weightComponent = [[@"0." stringByAppendingString:_weight] floatValue];
+            CGFloat normalizedPrice = [self.moneyString floatValue] / weightComponent;
+            moneyString = [NSString stringWithFormat:@"%f", normalizedPrice];
+        }
+        Price *price = [_modelManager createPriceWithValue:moneyString];
+
         price.product = product;
         product.barcode = _barcode;
 

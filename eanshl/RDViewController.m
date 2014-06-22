@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 redetection. All rights reserved.
 //
 
+#import <UIAlertView+Blocks/UIAlertView+Blocks.h>
 #import <ALAlertBanner/ALAlertBanner.h>
 #import <libextobjc/EXTScope.h>
 #import "RDViewController.h"
@@ -116,6 +117,16 @@
     _eanLabel.text = _viewModel.eanLabelText;
     _tagsTextField.text = _viewModel.tagsString;
     _moneyTextField.text = _viewModel.moneyString;
+}
+
+- (void)ifCuttedCode:(NSString *)cuttedCode shouldBeUsedInsteadOfFull:(NSString *)fullCode withCompletion:(void (^)(BOOL cutted))block {
+    [UIAlertView showWithTitle:@"Product unit or in bulk?"
+                                                message:@"In second case we'll mark that barcode has weight information"
+                                      cancelButtonTitle:@"Unit"
+                                      otherButtonTitles:@[@"Bulk"]
+                                               tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                                                    block(buttonIndex != alertView.cancelButtonIndex);
+    }];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
