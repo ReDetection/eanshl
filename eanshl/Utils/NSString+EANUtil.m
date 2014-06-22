@@ -30,4 +30,8 @@
     return [[[self substringToIndex:7] stringByAppendingString:@"00000"] addChecksum];
 }
 
+- (NSString *)weight {
+    return [self substringWithRange:NSMakeRange(7, 5)];
+}
+
 @end

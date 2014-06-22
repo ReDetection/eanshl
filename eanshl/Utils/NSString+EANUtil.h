@@ -10,5 +10,6 @@
 - (BOOL)canHaveWeightInformation;
 - (NSString *)addChecksum;
 - (NSString *)cutOutWeightInformation;
+- (NSString *)weight;
 
 @end

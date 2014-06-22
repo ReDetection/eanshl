@@ -50,6 +50,7 @@
 		420CEA6BFEC164C04FE86C78 /* RDToshlExpense.m in Sources */ = {isa = PBXBuildFile; fileRef = 420CE97677611BFCEA18CCCF /* RDToshlExpense.m */; };
 		420CEAB35740D3B0796604B5 /* NSString+EANUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 420CE972F515B81230EBBD5D /* NSString+EANUtil.m */; };
 		420CEBA7BD34F1BA72405287 /* RDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420CEF5E85888F616BD1343E /* RDViewController.m */; };
+		420CEBB942EF5593A4BF8A60 /* EANUtilExtractWeightTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 420CE3038D623171FE34B8CC /* EANUtilExtractWeightTest.m */; };
 		420CEE8DAE211B9BB18AD14E /* ScanSendViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 420CE1F38DD21AE44A9D7C8C /* ScanSendViewModel.m */; };
 		A79BC09BFDAA43EB9B3C782A /* libPods-eanshl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B1E00C9FAA481C8A8184B9 /* libPods-eanshl.a */; };
 /* End PBXBuildFile section */
@@ -103,6 +104,7 @@
 		420CE2354413A18955BC7FD0 /* Secure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Secure.h; sourceTree = "<group>"; };
 		420CE25BD52375005F299E10 /* RDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDViewController.h; sourceTree = "<group>"; };
 		420CE2E064643CDBB23F2293 /* RDToshl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDToshl.h; sourceTree = "<group>"; };
+		420CE3038D623171FE34B8CC /* EANUtilExtractWeightTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EANUtilExtractWeightTest.m; sourceTree = "<group>"; };
 		420CE419C6C24079D6EFC4CF /* RDToshlUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDToshlUser.m; sourceTree = "<group>"; };
 		420CE5D5164BE587CAE26637 /* RDToshlUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDToshlUser.h; sourceTree = "<group>"; };
 		420CE5E56D6B2FE70C118656 /* ModelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelManager.h; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				420CEB3360A6B0849A6A1F0D /* EANUtilHasWeightTests.m */,
 				420CED4880CAA7D90060C901 /* EANUtilAddChecksumTests.m */,
 				420CEEEAFEAEF6F76E0101B1 /* EANUtilCutOutWeightTests.m */,
+				420CE3038D623171FE34B8CC /* EANUtilExtractWeightTest.m */,
 			);
 			path = eanshlTests;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				420CE0FEA377B93AF69A9DFB /* EANUtilAddChecksumTests.m in Sources */,
 				420CE99B217A2FB1C93657C3 /* EANUtilCutOutWeightTests.m in Sources */,
 				420CEAB35740D3B0796604B5 /* NSString+EANUtil.m in Sources */,
+				420CEBB942EF5593A4BF8A60 /* EANUtilExtractWeightTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
