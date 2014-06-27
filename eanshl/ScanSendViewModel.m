@@ -3,6 +3,7 @@
 // Copyright (c) 2014 redetection. All rights reserved.
 //
 
+#import <AFOAuth2Client/AFOAuth2Client.h>
 #import <libextobjc/EXTScope.h>
 #import "ScanSendViewModel.h"
 #import "RDToshl.h"
@@ -15,6 +16,8 @@
 #import "urls.h"
 #import "TagsUtil.h"
 #import "NSString+EANUtil.h"
+
+static NSString *const KEYCHAIN_CREDENTIAL_IDENTIFIER = @"eanshl";
 
 @interface ScanSendViewModel ()
 
@@ -134,17 +137,24 @@
 
     if (_toshlAPI == nil) {
         _toshlAPI = [[RDToshl alloc] initWithClientID:TOSHL_CLIENT_ID secret:TOSHL_CLIENT_SECRET];
-        [self.delegate toshlAuthCodeRequired:^(NSString *code) {
-            [_toshlAPI authorizeWithCode:code redirectURI:REDIRECT_URL_STRING success:^{
-                sendBlock();
 
-            } fail:^(NSError *innerError) {
-                _toshlAPI = nil;
-                @strongify(self);
-                [self.delegate displayError:innerError];
+        AFOAuthCredential *credential = [AFOAuthCredential retrieveCredentialWithIdentifier:KEYCHAIN_CREDENTIAL_IDENTIFIER];
+        if (credential != nil) {
+            //TODO check for errors
+            [_toshlAPI authorizeWithCredential:credential];
+            sendBlock();
+        } else {
+            [self.delegate toshlAuthCodeRequired:^(NSString *code) {
+                [_toshlAPI authorizeWithCode:code redirectURI:REDIRECT_URL_STRING success: ^(AFOAuthCredential *newCredential){
+                    [AFOAuthCredential storeCredential:newCredential withIdentifier:KEYCHAIN_CREDENTIAL_IDENTIFIER];
+                    sendBlock();
+                } fail:^(NSError *innerError) {
+                    _toshlAPI = nil;
+                    @strongify(self);
+                    [self.delegate displayError:innerError];
+                }];
             }];
-        }];
-
+        }
     } else {
         sendBlock();
     }
