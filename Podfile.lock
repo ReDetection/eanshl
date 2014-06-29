@@ -60,7 +60,6 @@ PODS:
   - RestKit/Support (0.23.1):
     - TransitionKit (= 2.1.0)
   - RKValueTransformers (1.1.0)
-  - ScanditSDK (4.0.0)
   - SOCKit (1.1)
   - TransitionKit (2.1.0)
   - UIAlertView+Blocks (0.8.1)
@@ -70,7 +69,6 @@ DEPENDENCIES:
   - ALAlertBanner (from `https://github.com/ReDetection/ALAlertBanner.git`)
   - libextobjc (~> 0.4)
   - RestKit (~> 0.23.1)
-  - ScanditSDK (~> 4.0.0)
   - UIAlertView+Blocks (~> 0.8.1)
 
 EXTERNAL SOURCES:
@@ -85,7 +83,6 @@ SPEC CHECKSUMS:
   libextobjc: ba42e4111f433273a886cd54f0ddaddb7f62f82f
   RestKit: 0b5f1bbc43b81beba158262a1adae48ac062eb1e
   RKValueTransformers: b705e7b4651b9206b94600408462b74554bba969
-  ScanditSDK: f6b232993d44f22cebbf65dfa1dabd8ea50b8690
   SOCKit: d8d0dd3688ae1026c12367570da8fa8e1a6980fb
   TransitionKit: 6a6f3ddda38ae758778aa889dcb930e4f8d64edc
   UIAlertView+Blocks: 0b749f1f7bd5131ff2233b30a406c1585a7171b2
