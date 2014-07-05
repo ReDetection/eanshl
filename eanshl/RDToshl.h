@@ -11,7 +11,7 @@
 
 - (instancetype)initWithClientID:(NSString *)clientID secret:(NSString *)secret;
 - (void)authorizeWithCode:(NSString *)code redirectURI:(NSString *)redirectURI success:(void (^)(AFOAuthCredential *))successBlock fail:(void (^)(NSError *error))failBlock;
-- (void)authorizeWithCredential:(AFOAuthCredential *)credential;
+- (void)authorizeWithCredential:(AFOAuthCredential *)credential success:(void (^)(AFOAuthCredential *credential))successBlock fail:(void (^)(NSError *error))failBlock;
 
 - (void)userInfoWithSuccess:(void (^)(RDToshlUser *userInfo))successBlock fail:(void (^)(NSError *error))failBlock;
 - (void)expensesPageWithSuccess:(void (^)(NSArray *expenses))successBlock fail:(void (^)(NSError *error))failBlock;

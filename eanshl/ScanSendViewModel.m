@@ -138,12 +138,7 @@ static NSString *const KEYCHAIN_CREDENTIAL_IDENTIFIER = @"eanshl";
     if (_toshlAPI == nil) {
         _toshlAPI = [[RDToshl alloc] initWithClientID:TOSHL_CLIENT_ID secret:TOSHL_CLIENT_SECRET];
 
-        AFOAuthCredential *credential = [AFOAuthCredential retrieveCredentialWithIdentifier:KEYCHAIN_CREDENTIAL_IDENTIFIER];
-        if (credential != nil) {
-            //TODO check for errors
-            [_toshlAPI authorizeWithCredential:credential];
-            sendBlock();
-        } else {
+        void (^askAuthCodeThenSendBlock)() = ^{
             [self.delegate toshlAuthCodeRequired:^(NSString *code) {
                 [_toshlAPI authorizeWithCode:code redirectURI:REDIRECT_URL_STRING success: ^(AFOAuthCredential *newCredential){
                     [AFOAuthCredential storeCredential:newCredential withIdentifier:KEYCHAIN_CREDENTIAL_IDENTIFIER];
@@ -154,6 +149,18 @@ static NSString *const KEYCHAIN_CREDENTIAL_IDENTIFIER = @"eanshl";
                     [self.delegate displayError:innerError];
                 }];
             }];
+        };
+
+        AFOAuthCredential *credential = [AFOAuthCredential retrieveCredentialWithIdentifier:KEYCHAIN_CREDENTIAL_IDENTIFIER];
+        if (credential != nil) {
+            [_toshlAPI authorizeWithCredential:credential success:^(AFOAuthCredential *newCredential) {
+                [AFOAuthCredential storeCredential:newCredential withIdentifier:KEYCHAIN_CREDENTIAL_IDENTIFIER];
+                sendBlock();
+            } fail:^(NSError *error) {
+                askAuthCodeThenSendBlock();
+            }];
+        } else {
+            askAuthCodeThenSendBlock();
         }
     } else {
         sendBlock();

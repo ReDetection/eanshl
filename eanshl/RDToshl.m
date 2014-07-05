@@ -11,6 +11,7 @@
 
 static NSString *const TOSHL_AUTH_URL_STRING = @"https://toshl.com";
 static NSString *const TOSHL_TOKEN_BY_AUTH_CODE_PATH = @"/oauth2/token";
+static NSString *const TOSHL_TOKEN_REFRESH_PATH = @"/oauth2/token";
 
 static NSString *const TOSHL_API_URL_STRING = @"https://api.toshl.com";
 
@@ -48,8 +49,18 @@ static NSString *const TOSHL_API_URL_STRING = @"https://api.toshl.com";
     }];
 }
 
-- (void)authorizeWithCredential:(AFOAuthCredential *)credential {
-    [_apiClient setAuthorizationHeaderWithCredential:credential];
+- (void)authorizeWithCredential:(AFOAuthCredential *)credential success:(void (^)(AFOAuthCredential *credential))successBlock fail:(void (^)(NSError *error))failBlock {
+    [_tokensClient authenticateUsingOAuthWithPath:TOSHL_TOKEN_REFRESH_PATH refreshToken:credential.refreshToken success:^(AFOAuthCredential *newCredential) {
+        [_apiClient setAuthorizationHeaderWithCredential:newCredential];
+        if (successBlock != NULL) {
+            successBlock(newCredential);
+        }
+
+    } failure:^(NSError *error) {
+        if (failBlock != NULL) {
+            failBlock(error);
+        }
+    }];
 }
 
 - (void)userInfoWithSuccess:(void(^)(RDToshlUser *userInfo))successBlock fail:(void(^)(NSError *error))failBlock {
