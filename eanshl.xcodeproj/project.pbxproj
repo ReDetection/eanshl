@@ -44,7 +44,7 @@
 		420CE782E7EEACB334477DC7 /* RDToshlUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 420CE419C6C24079D6EFC4CF /* RDToshlUser.m */; };
 		420CE81602286EDD8B48660C /* TagsUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 420CE613C0D8C97629C96B87 /* TagsUtil.m */; };
 		420CE93C5AB73CEA1139663A /* EANUtilIsGlobalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 420CE80B375A6CFAB682B989 /* EANUtilIsGlobalTests.m */; };
-		420CE946664A3F55F192D759 /* Scanner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 420CE0ABACB88748E349F62D /* Scanner.mm */; };
+		420CE946664A3F55F192D759 /* Scanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 420CE0ABACB88748E349F62D /* Scanner.m */; };
 		420CE956174C867BBDBE1D18 /* ModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 420CECA5FC26948899B71D5A /* ModelManager.m */; };
 		420CE99B217A2FB1C93657C3 /* EANUtilCutOutWeightTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 420CEEEAFEAEF6F76E0101B1 /* EANUtilCutOutWeightTests.m */; };
 		420CEA6BFEC164C04FE86C78 /* RDToshlExpense.m in Sources */ = {isa = PBXBuildFile; fileRef = 420CE97677611BFCEA18CCCF /* RDToshlExpense.m */; };
@@ -97,7 +97,7 @@
 		36F4A0C2193AF27E0077D1A5 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Product.m; path = ../Model/Product.m; sourceTree = "<group>"; };
 		36F4A113193B72410077D1A5 /* AuthorizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorizeViewController.h; sourceTree = "<group>"; };
 		36F4A114193B72410077D1A5 /* AuthorizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorizeViewController.m; sourceTree = "<group>"; };
-		420CE0ABACB88748E349F62D /* Scanner.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Scanner.mm; sourceTree = "<group>"; };
+		420CE0ABACB88748E349F62D /* Scanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scanner.m; sourceTree = "<group>"; };
 		420CE0C97931A75F9BF114D6 /* TagsUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagsUtil.h; sourceTree = "<group>"; };
 		420CE0D2CCB9CE600FDA189D /* NSString+EANUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+EANUtil.h"; sourceTree = "<group>"; };
 		420CE1F38DD21AE44A9D7C8C /* ScanSendViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanSendViewModel.m; sourceTree = "<group>"; };
@@ -300,7 +300,7 @@
 				420CE613C0D8C97629C96B87 /* TagsUtil.m */,
 				420CE0C97931A75F9BF114D6 /* TagsUtil.h */,
 				420CE9812BE670F6CC712FF3 /* Scanner.h */,
-				420CE0ABACB88748E349F62D /* Scanner.mm */,
+				420CE0ABACB88748E349F62D /* Scanner.m */,
 				420CE972F515B81230EBBD5D /* NSString+EANUtil.m */,
 				420CE0D2CCB9CE600FDA189D /* NSString+EANUtil.h */,
 			);
@@ -479,7 +479,7 @@
 				420CEBA7BD34F1BA72405287 /* RDViewController.m in Sources */,
 				420CEE8DAE211B9BB18AD14E /* ScanSendViewModel.m in Sources */,
 				420CE81602286EDD8B48660C /* TagsUtil.m in Sources */,
-				420CE946664A3F55F192D759 /* Scanner.mm in Sources */,
+				420CE946664A3F55F192D759 /* Scanner.m in Sources */,
 				420CE6442755271A1A6F1DD3 /* NSString+EANUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
