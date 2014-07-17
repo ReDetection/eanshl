@@ -19,7 +19,8 @@
 + (void)scanWithCompletion:(void (^)(NSString *code))block fromViewController:(UIViewController *)vc {
     ScanViewController *scanningController = [[ScanViewController alloc] init];
     scanningController.completion = block;
-    [vc presentViewController:scanningController animated:YES completion:nil];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:scanningController];
+    [vc presentViewController:navigationController animated:YES completion:nil];
 }
 
 @end
@@ -27,10 +28,53 @@
 @implementation ScanViewController {
     AVCaptureVideoPreviewLayer *prevLayer;
     AVCaptureSession *session;
+    UISearchBar *searchBar;
 }
+
+- (UIView *)accessoryView {
+    UIToolbar *toolbar = [[UIToolbar alloc] init];
+    toolbar.items = @[
+        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(dismissManualInput)],
+        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(reportFromSearchbar)],
+    ];
+    toolbar.frame = CGRectMake(0, 0, 320, 44);
+    return toolbar;
+}
+
+- (void)reportFromSearchbar {
+    [self reportAndDismissWithString:searchBar.text];
+}
+
+- (void)reportAndDismissWithString:(NSString *)code {
+    [session stopRunning];
+    self.completion(code);
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)dismissManualInput {
+    [searchBar resignFirstResponder];
+}
+
+- (void)makeToolbar {
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel)];
+    searchBar = [[UISearchBar alloc] init];
+    searchBar.placeholder = @"Manual barcode input";
+    searchBar.keyboardType = UIKeyboardTypeNumberPad;
+    searchBar.inputAccessoryView = [self accessoryView];
+    self.navigationItem.titleView = searchBar;
+}
+
+- (void)cancel {
+    [session stopRunning];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    [self makeToolbar];
 
     session = [[AVCaptureSession alloc] init];
     AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
@@ -75,9 +119,7 @@
                 barCodeObject = (AVMetadataMachineReadableCodeObject *)[prevLayer transformedMetadataObjectForMetadataObject:(AVMetadataMachineReadableCodeObject *) metadata];
                 highlightViewRect = barCodeObject.bounds;
                 detectionString = [(AVMetadataMachineReadableCodeObject *)metadata stringValue];
-                [session stopRunning];
-                self.completion(detectionString);
-                [self dismissViewControllerAnimated:YES completion:nil];
+                [self reportAndDismissWithString:detectionString];
                 break;
             }
         }
