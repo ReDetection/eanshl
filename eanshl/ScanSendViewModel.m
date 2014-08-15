@@ -93,8 +93,10 @@ static NSString *const KEYCHAIN_CREDENTIAL_IDENTIFIER = @"eanshl";
 - (void)sendToToshl {
     NSArray *tags = [TagsUtil tagsArrayFromString:self.tagsString];
     if (_barcode.product == nil) {
-        Product *product = [_modelManager createProductWithName:self.productName];
-
+        _barcode.product = [_modelManager createProductWithName:self.productName];
+    }
+    
+    {
         NSString *moneyString;
         if (_weight == nil) {
             moneyString = self.moneyString;
@@ -105,9 +107,12 @@ static NSString *const KEYCHAIN_CREDENTIAL_IDENTIFIER = @"eanshl";
         }
         Price *price = [_modelManager createPriceWithValue:moneyString];
 
-        price.product = product;
-        product.barcode = _barcode;
-
+        price.product = _barcode.product;
+    }
+    
+    {
+        Product *product = _barcode.product;
+        [product removeTags:product.tags];
         for (NSString *tagString in tags) {
             ToshlTag *tag = [_modelManager findOrCreateTagWithName:tagString];
             [product addTagsObject:tag];
