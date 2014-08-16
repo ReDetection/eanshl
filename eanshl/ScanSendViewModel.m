@@ -94,6 +94,8 @@ static NSString *const KEYCHAIN_CREDENTIAL_IDENTIFIER = @"eanshl";
     NSArray *tags = [TagsUtil tagsArrayFromString:self.tagsString];
     if (_barcode.product == nil) {
         _barcode.product = [_modelManager createProductWithName:self.productName];
+    } else {
+        _barcode.product.name = self.productName;
     }
     
     {
