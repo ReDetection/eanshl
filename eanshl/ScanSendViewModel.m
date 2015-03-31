@@ -5,13 +5,12 @@
 
 #import <AFOAuth2Client/AFOAuth2Client.h>
 #import <libextobjc/EXTScope.h>
+#import <RDToshlKit/RDToshlKit.h>
 #import "ScanSendViewModel.h"
-#import "RDToshl.h"
 #import "Barcode.h"
 #import "ModelManager.h"
 #import "Product.h"
 #import "Price.h"
-#import "RDToshlExpense.h"
 #import "Secure.h"
 #import "urls.h"
 #import "TagsUtil.h"
@@ -24,7 +23,7 @@ static NSString *const KEYCHAIN_CREDENTIAL_IDENTIFIER = @"eanshl";
 @property(nonatomic, strong) ModelManager *modelManager;
 @property(nonatomic, strong) Barcode *barcode;
 @property(nonatomic, strong) NSString *weight;
-@property(nonatomic, strong) RDToshl *toshlAPI;
+@property(nonatomic, strong) RTKClient *toshlAPI;
 
 @property (nonatomic, strong, readwrite) NSString *eanLabelText;
 @end
@@ -124,7 +123,7 @@ static NSString *const KEYCHAIN_CREDENTIAL_IDENTIFIER = @"eanshl";
     [_modelManager save];
 
 
-    RDToshlExpense *expense = [[RDToshlExpense alloc] init];
+    RTKExpense *expense = [[RTKExpense alloc] init];
     expense.date = [NSDate date];
     expense.amount = @(self.moneyString.doubleValue);
     expense.currency = @"RUB";
@@ -143,7 +142,7 @@ static NSString *const KEYCHAIN_CREDENTIAL_IDENTIFIER = @"eanshl";
     };
 
     if (_toshlAPI == nil) {
-        _toshlAPI = [[RDToshl alloc] initWithClientID:TOSHL_CLIENT_ID secret:TOSHL_CLIENT_SECRET];
+        _toshlAPI = [[RTKClient alloc] initWithClientID:TOSHL_CLIENT_ID secret:TOSHL_CLIENT_SECRET];
 
         void (^askAuthCodeThenSendBlock)() = ^{
             [self.delegate toshlAuthCodeRequired:^(NSString *code) {
