@@ -5,7 +5,7 @@ target "eanshl" do
  pod 'ALAlertBanner', :git => 'https://github.com/ReDetection/ALAlertBanner.git'
  pod 'libextobjc', '~> 0.4'
  pod 'UIAlertView+Blocks', '~> 0.8.1'
- pod 'RDToshlKit', :path => '~/src/self/RDToshlKit'
+ pod 'RDToshlKit', :git => 'https://github.com/ReDetection/RDToshlKit.git'
 end
 
 target "eanshlTests" do

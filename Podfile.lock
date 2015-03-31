@@ -70,14 +70,14 @@ PODS:
 DEPENDENCIES:
   - ALAlertBanner (from `https://github.com/ReDetection/ALAlertBanner.git`)
   - libextobjc (~> 0.4)
-  - RDToshlKit (from `~/src/self/RDToshlKit`)
+  - RDToshlKit (from `https://github.com/ReDetection/RDToshlKit.git`)
   - UIAlertView+Blocks (~> 0.8.1)
 
 EXTERNAL SOURCES:
   ALAlertBanner:
     :git: https://github.com/ReDetection/ALAlertBanner.git
   RDToshlKit:
-    :path: ~/src/self/RDToshlKit
+    :git: https://github.com/ReDetection/RDToshlKit.git
 
 SPEC CHECKSUMS:
   AFNetworking: cf8e418e16f0c9c7e5c3150d019a3c679d015018
